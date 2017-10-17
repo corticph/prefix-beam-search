@@ -22,5 +22,5 @@ You find the `kenlm` package here:
 You only need to install the Python wrapper from the `kenlm` package. This is done by following these steps:
 
 1. Download the package: https://kheafield.com/code/kenlm.tar.gz
-2. `cd` to the main folder (this should contain a `setup.py`)
+2. Unzip and `cd` to the main folder (this should contain a `setup.py`)
 3. Install with pip: `pip install .`
