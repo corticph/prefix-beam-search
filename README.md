@@ -39,6 +39,9 @@ mister quilter is the apostle of the middle classes and we are glad to welcome h
 
 Notice that each of these examples are handpicked. Thus, the transcript resulting from the prefix beam search is also the true transcript.
 
+### Language Model
+A language model model is provided in `lm.arpa`. In order to save space, this model has been heavily pruned to a point that makes it only useful for exactly these three examples. More precisely, all N-grams that has not been used during the process of decoding the three examples has been removed.
+
 ### Dependencies
 In order to run the examples with the language model you need to install the following Python packages:
 
