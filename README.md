@@ -17,7 +17,7 @@ In order to run the examples with the language model you need to install the fol
 * `numpy`
 * `kenlm`
 
-You find the `kenlm` package here: 
+You find the `kenlm` package here: https://kheafield.com/code/kenlm/
 
 You only need to install the Python wrapper from the `kenlm` package. This is done by following these steps:
 
