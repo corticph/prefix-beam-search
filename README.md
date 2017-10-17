@@ -6,10 +6,38 @@ Link: TODO: ADD LINK
 This repository contains two files with Python code:
 
 * `prefix_beam_search.py` contains all the code that is explained in the tutorial 
-* `run_examples.py` will perform on the 
+* `run_examples.py` will load a laguage model, perform beam search on three examples and print the result along with the output from a greedy decoder for comparison.
 
 ### Examples
+The `examples` folder contains three examples of CTC output (2D NumPy arrays) from a CNN-based acoustic model. The model is trained on the LibriSpeech corpus. When running `run_examples.py` you should get the following output:
 
+```
+examples/example_2002.p
+
+BEFORE:
+alloud laugh followed at chunkeys expencs
+
+AFTER:
+a loud laugh followed at chunkys expense
+
+examples/example_99.p
+
+BEFORE:
+but no ghoes tor anything else appeared upon the angient wall
+
+AFTER:
+but no ghost or anything else appeared upon the ancient walls
+
+examples/example_1518.p
+
+BEFORE:
+mister qualter as the apostle of the middle classes and we re glad twelcomed his gospe
+
+AFTER:
+mister quilter is the apostle of the middle classes and we are glad to welcome his gospel
+```
+
+Notice that each of these examples are handpicked. Thus, the transcript resulting from the prefix beam search is also the true transcript.
 
 ### Dependencies
 In order to run the examples with the language model you need to install the following Python packages:
