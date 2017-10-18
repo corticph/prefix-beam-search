@@ -1,7 +1,3 @@
 *.pyc
 *.DS_Store
-lm.binary
-nlm.arpa
-nvocab.txt
-vocab.txt
-voc.txt
+misc/*

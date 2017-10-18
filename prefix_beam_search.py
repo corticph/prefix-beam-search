@@ -63,7 +63,7 @@ def prefix_beam_search(ctc, lm=None, k=25, alpha=0.30, beta=5, prune=0.001):
 
 					# STEP 5: Extending with any other non-blank character and LM constraints
 					elif len(l.replace(' ', '')) > 0 and c in (' ', '>'):
-						lm_prob = lm(l_plus.strip('>')) ** alpha
+						lm_prob = lm(l_plus.strip(' >')) ** alpha
 						Pnb[t][l_plus] += lm_prob * ctc[t][c_ix] * (Pb[t - 1][l] + Pnb[t - 1][l])
 					else:
 						Pnb[t][l_plus] += ctc[t][c_ix] * (Pb[t - 1][l] + Pnb[t - 1][l])

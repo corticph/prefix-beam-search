@@ -1,15 +1,16 @@
 # prefix-beam-search
 Code for prefix beam search tutorial by @labodk
+
 Link: TODO: ADD LINK
 
 ### Code
 This repository contains two files with Python code:
 
-* `prefix_beam_search.py` contains all the code that is explained in the tutorial 
-* `run_examples.py` will load a laguage model, perform beam search on three examples and print the result along with the output from a greedy decoder for comparison.
+* `prefix_beam_search.py` contains all the code that is explained in the tutorial. I.e., the actual prefix beam search algorithm. 
+* `test.py` will load a laguage model, perform beam search on three examples and print the result along with the output from a greedy decoder for comparison.
 
 ### Examples
-The `examples` folder contains three examples of CTC output (2D NumPy arrays) from a CNN-based acoustic model. The model is trained on the LibriSpeech corpus. When running `run_examples.py` you should get the following output:
+The `examples` folder contains three examples of CTC output (2D NumPy arrays) from a CNN-based acoustic model. The model is trained on the LibriSpeech corpus (http://www.openslr.org/12). When executing `test.py` you should get the following output:
 
 ```
 examples/example_2002.p
@@ -40,18 +41,8 @@ mister quilter is the apostle of the middle classes and we are glad to welcome h
 Notice that each of these examples are handpicked. Thus, the transcript resulting from the prefix beam search is also the true transcript.
 
 ### Language Model
-A language model model is provided in `lm.arpa`. In order to save space, this model has been heavily pruned to a point that makes it only useful for exactly these three examples. More precisely, all N-grams that has not been used during the process of decoding the three examples has been removed.
+The `language_model.p` contains a dictionary mapping between all relevant prefixes queried during decoding of the three examples and the corresponding language model probabilities. Thus, this "language model" will only work for the three provided examples. The original language model file was too large to upload here. However, a range of similar pre-trained models can be found on the LibriSpeech website (http://www.openslr.org/11).
 
 ### Dependencies
-In order to run the examples with the language model you need to install the following Python packages:
 
 * `numpy`
-* `kenlm`
-
-You find the `kenlm` package here: https://kheafield.com/code/kenlm/
-
-You only need to install the Python wrapper from the `kenlm` package. This is done by following these steps:
-
-1. Download the package: https://kheafield.com/code/kenlm.tar.gz
-2. Unzip and `cd` to the main folder (this should contain a `setup.py`)
-3. Install with pip: `pip install .`
