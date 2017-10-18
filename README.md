@@ -1,4 +1,4 @@
-# prefix-beam-search
+# Prefix Beam Search
 Code for prefix beam search tutorial by @labodk
 
 Link: TODO: ADD LINK
