@@ -1,7 +1,7 @@
 # Prefix Beam Search
 Code for prefix beam search tutorial by @labodk
 
-Link: TODO: ADD LINK
+Link: https://medium.com/corti-ai/ctc-networks-and-language-models-prefix-beam-search-explained-c11d1ee23306
 
 ### Code
 This repository contains two files with Python code:
