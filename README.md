@@ -13,29 +13,22 @@ This repository contains two files with Python code:
 The `examples` folder contains three examples of CTC output (2D NumPy arrays) from a CNN-based acoustic model. The model is trained on the LibriSpeech corpus (http://www.openslr.org/12). When executing `test.py` you should get the following output:
 
 ```
-examples/example_2002.p
+examples/example_1518.p
+BEFORE: 0.00016sec, mister qualter as the apostle of the middle classes and we re glad twelcomed his gospe
+AFTER(prob): 0.18531sec, mister quilter is the apostle of the middle classes and we are glad to welcome his gospel
+AFTER(logp): 0.73244sec, mister quilter is the apostle of the middle classes and we are glad to welcome his gospel
 
-BEFORE:
-alloud laugh followed at chunkeys expencs
-
-AFTER:
-a loud laugh followed at chunkys expense
 
 examples/example_99.p
+BEFORE: 0.0001sec, but no ghoes tor anything else appeared upon the angient wall
+AFTER(prob): 0.15459sec, but no ghost or anything else appeared upon the ancient walls
+AFTER(logp): 0.58308sec, but no ghost or anything else appeared upon the ancient walls
 
-BEFORE:
-but no ghoes tor anything else appeared upon the angient wall
 
-AFTER:
-but no ghost or anything else appeared upon the ancient walls
-
-examples/example_1518.p
-
-BEFORE:
-mister qualter as the apostle of the middle classes and we re glad twelcomed his gospe
-
-AFTER:
-mister quilter is the apostle of the middle classes and we are glad to welcome his gospel
+examples/example_2002.p
+BEFORE: 9e-05sec, alloud laugh followed at chunkeys expencs
+AFTER(prob): 0.16504sec, a loud laugh followed at chunkys expense
+AFTER(logp): 0.5361sec, a loud laugh followed at chunkys expense
 ```
 
 Notice that each of these examples are handpicked. Thus, the transcript resulting from the prefix beam search is also the true transcript.
