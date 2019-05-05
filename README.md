@@ -1,5 +1,5 @@
 # Prefix Beam Search
-Code for prefix beam search tutorial by @labodk
+Code for prefix beam search tutorial by @borgholt (FKA @labodk)
 
 Link: https://medium.com/corti-ai/ctc-networks-and-language-models-prefix-beam-search-explained-c11d1ee23306
 
