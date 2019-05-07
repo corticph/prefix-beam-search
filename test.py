@@ -3,7 +3,9 @@ from string import ascii_lowercase
 from collections import defaultdict
 import pickle
 import numpy as np
-from prefix_beam_search import prefix_beam_search
+from prefix_beam_search import prefix_beam_search, prefix_beam_search_log_space
+import time
+
 
 class LanguageModel(object):
   """
@@ -15,7 +17,7 @@ class LanguageModel(object):
     Initializes the language model.
 
     Args:
-      lm_file (str): Path to dictionary mapping between prefixes and lm probabilities. 
+      lm_file (str): Path to dictionary mapping between prefixes and lm probabilities.
     """
     lm = pickle.load(open(lm_file, 'rb'))
     self._model = defaultdict(lambda: 1e-11, lm)
@@ -28,6 +30,7 @@ class LanguageModel(object):
       prefix (str): The sentence prefix to be scored.
     """
     return self._model[prefix]
+
 
 def greedy_decoder(ctc):
   """
@@ -60,8 +63,20 @@ if __name__ == '__main__':
     lm = LanguageModel('language_model.p')
     for example_file in glob('examples/*.p'):
         example = pickle.load(open(example_file, 'rb'))
+
+        t0 = time.time()
         before_lm = greedy_decoder(example)
+        t_before_lm = time.time() - t0
+
+        t0 = time.time()
         after_lm = prefix_beam_search(example, lm=lm)
-        print('\n{}'.format(example_file))
-        print('\nBEFORE:\n{}'.format(before_lm))
-        print('\nAFTER:\n{}'.format(after_lm))
+        t_after_lm = time.time() - t0
+
+        t0 = time.time()
+        after_lm_log = prefix_beam_search_log_space(example, lm=lm, alpha=.5)
+        t_after_lm_log = time.time() - t0
+
+        print('\n\n{}'.format(example_file))
+        print('BEFORE: {}sec, {}'.format(round(t_before_lm, 5), before_lm))
+        print('AFTER(prob): {}sec, {}'.format(round(t_after_lm, 5), after_lm))
+        print('AFTER(logp): {}sec, {}'.format(round(t_after_lm_log, 5), after_lm_log))
