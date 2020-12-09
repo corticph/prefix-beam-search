@@ -50,7 +50,7 @@ def greedy_decoder(ctc):
   collapsed = arg_max[repeat_filter]
 
   # discard blank tokens (the blank is always last in the alphabet)
-  blank_filter = np.where(collapsed < (alphabet_size - 1))[0]
+  blank_filter = np.where(collapsed < alphabet_size)[0]
   final_sequence = collapsed[blank_filter]
   full_decode = ''.join([alphabet[letter_idx] for letter_idx in final_sequence])
 
